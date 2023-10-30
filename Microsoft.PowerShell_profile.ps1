@@ -17,7 +17,13 @@ function cf {
         "rust" {
             Set-Location "C:\Users\arash\OneDrive\Projects\RustPlayground"
         }
-        "ad" {
+        "app" {
+            Set-Location "C:\Users\arash\AppData"
+        }
+        "data" {
+            Set-Location "C:\Users\arash\AppData"
+        }
+        "appdata" {
             Set-Location "C:\Users\arash\AppData"
         }
         "vim" {
