@@ -91,3 +91,58 @@ function icon {
         }
     }
 }
+
+Remove-Item Alias:\ls -ErrorAction SilentlyContinue
+function ls {
+    param (
+        [string]$Path = (Get-Location),
+        [switch]$Recursive
+    )
+
+    $items = Get-ChildItem $Path
+    if ($Recursive) {
+        $items = Get-ChildItem $Path -Recurse
+    }
+
+    $folderPath = $Path
+    $dateTimeFormat = "yyyy-MM-dd hh:mm tt"
+
+    $table = @()
+
+    foreach ($item in $items) {
+        if ($item -is [System.IO.FileInfo]) {
+            $lastModified = $item.LastWriteTime.ToString($dateTimeFormat)
+            $fileName = $item.Name
+
+            # Convert the file size to KB, MB, or GB
+            $fileSize = $item.Length
+            if ($fileSize -ge 1GB) {
+                $fileSizeFormatted = "{0:N2} GB" -f ($fileSize / 1GB)
+            } elseif ($fileSize -ge 1MB) {
+                $fileSizeFormatted = "{0:N2} MB" -f ($fileSize / 1MB)
+            } else {
+                $fileSizeFormatted = "{0:N2} KB" -f ($fileSize / 1KB)
+            }
+
+            $table += New-Object PSObject -property @{
+                "Last Modified" = "`e[90m$lastModified`e[0m "
+                "Size" = "`e[90m$fileSizeFormatted`e[0m "
+                "Name" = "$fileName"
+            }
+        } elseif ($item -is [System.IO.DirectoryInfo]) {
+            $lastModified = $item.LastWriteTime.ToString($dateTimeFormat)
+            $folderName = $item.Name
+
+            $table += New-Object PSObject -property @{
+                "Last Modified" = "`e[90m$lastModified`e[0m "
+                "Size" = ""
+                "Name" = "`e[44;97m$folderName`e[0m"  # Blue background for folder names
+            }
+        }
+    }
+
+    #Write-Host $folderPath
+    Write-Host "$folderPath"  # Blue background for folder names
+
+    $table | Format-Table -Property "Last Modified", "Size", "Name" -AutoSize
+}
