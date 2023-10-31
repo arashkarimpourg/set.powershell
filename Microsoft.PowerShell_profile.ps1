@@ -5,17 +5,47 @@ function cf {
         [string]$Alias
     )
     switch ($Alias) {
-        "down" {
+        "downloads" {
             Set-Location "C:\Users\arash\Downloads"
+        }
+        "download" {
+            Set-Location "C:\Users\arash\Downloads"
+        }
+        "down" {
+            Set-Location "C:\Users\arash\Desktop"
+        }
+        "dn" {
+            Set-Location "C:\Users\arash\Desktop"
+        }
+        "desktop" {
+            Set-Location "C:\Users\arash\Desktop"
         }
         "desk" {
             Set-Location "C:\Users\arash\Desktop"
         }
+        "ds" {
+            Set-Location "C:\Users\arash\Desktop"
+        }
+        "projects" {
+            Set-Location "C:\Users\arash\OneDrive\Projects"
+        }
+        "project" {
+            Set-Location "C:\Users\arash\OneDrive\Projects"
+        }
         "pro" {
+            Set-Location "C:\Users\arash\OneDrive\Projects"
+        }
+        "pr" {
             Set-Location "C:\Users\arash\OneDrive\Projects"
         }
         "rust" {
             Set-Location "C:\Users\arash\OneDrive\Projects\RustPlayground"
+        }
+        "rs" {
+            Set-Location "C:\Users\arash\OneDrive\Projects\RustPlayground"
+        }
+        "appdata" {
+            Set-Location "C:\Users\arash\AppData"
         }
         "app" {
             Set-Location "C:\Users\arash\AppData"
@@ -23,11 +53,47 @@ function cf {
         "data" {
             Set-Location "C:\Users\arash\AppData"
         }
-        "appdata" {
+        "ad" {
             Set-Location "C:\Users\arash\AppData"
+        }
+        "ap" {
+            Set-Location "C:\Users\arash\AppData"
+        }
+        "nvim" {
+            Set-Location "C:\Users\arash\AppData\Local\nvim"
         }
         "vim" {
             Set-Location "C:\Users\arash\AppData\Local\nvim"
+        }
+        "nv" {
+            Set-Location "C:\Users\arash\AppData\Local\nvim"
+        }
+        "vm" {
+            Set-Location "C:\Users\arash\AppData\Local\nvim"
+        }
+        "powershell" {
+            Set-Location "C:\Users\arash\Documents\PowerShell"
+        }
+        "psh" {
+            Set-Location "C:\Users\arash\Documents\PowerShell"
+        }
+        "ps" {
+            Set-Location "C:\Users\arash\Documents\PowerShell"
+        }
+        "pw" {
+            Set-Location "C:\Users\arash\Documents\PowerShell"
+        }
+        "pwsh" {
+            Set-Location "C:\Users\arash\Documents\PowerShell"
+        }
+        "shell" {
+            Set-Location "C:\Users\arash\Documents\PowerShell"
+        }
+        "pshell" {
+            Set-Location "C:\Users\arash\Documents\PowerShell"
+        }
+        "pwshell" {
+            Set-Location "C:\Users\arash\Documents\PowerShell"
         }
         default {
             Set-Location $Alias
