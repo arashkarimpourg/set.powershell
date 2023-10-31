@@ -12,10 +12,10 @@ function cf {
             Set-Location "C:\Users\arash\Downloads"
         }
         "down" {
-            Set-Location "C:\Users\arash\Desktop"
+            Set-Location "C:\Users\arash\Downloads"
         }
         "dn" {
-            Set-Location "C:\Users\arash\Desktop"
+            Set-Location "C:\Users\arash\Downloads"
         }
         "desktop" {
             Set-Location "C:\Users\arash\Desktop"
